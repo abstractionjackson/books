@@ -1,0 +1,25 @@
+[cmd]
+[cmd.add]
+long = "The command `add` creates a new book in the library.\n\nThe path to the books can be set from the CLI using `config --libraryDir`.\nThe filename is generated from the title and author.\nStatus default to \"To Read\".\n"
+short = 'Add'
+
+[cmd.config]
+long = "The command `config` sets the configuration for the application\n"
+short = 'Config'
+
+[cmd.root]
+long = "Books is a CLI library for Reading Material Management (RMM).\n\nPerform CRUD operations on records pertaining to books in order to define relationships between the reader and a given piece of material.\n"
+short = 'Books'
+
+[data]
+dir = 'data'
+
+[cmd.update]
+short = 'Update'
+long = "The command `update` updates the status of a book in the library.\n\nThe path to the books can be set from the CLI using `config --libraryDir`.\nThe filename is generated from the title and author.\n"
+
+[cmd.info]
+short = 'Info'
+long = '''
+Get information about a book, including the current status, and its history.
+'''
