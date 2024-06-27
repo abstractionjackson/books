@@ -39,6 +39,29 @@ func (b *Book) SaveBookToTOML() {
 	}
 }
 
+func (b *Book) SaveBookToMarkdown() {
+	mdDir := viper.GetString("data.mdDir")
+
+	if _, err := os.Stat(mdDir); os.IsNotExist(err) {
+		os.MkdirAll(mdDir, os.ModePerm)
+	}
+
+	mdFile := mdDir + "/" + b.Title + ".md"
+
+	frontmatter := "+++\n"
+	data, err := toml.Marshal(b)
+	if err != nil {
+		panic(err)
+	}
+	frontmatter += string(data)
+	frontmatter += "+++\n"
+
+	err = os.WriteFile(mdFile, []byte(frontmatter), 0644)
+	if err != nil {
+		panic(err)
+	}
+}
+
 func (b *Book) UpdateStatus(status string) {
 	b.Status[status] = append(b.Status[status], time.Now())
 	b.SaveBookToTOML()

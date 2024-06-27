@@ -14,6 +14,7 @@ import (
 
 var title, author, status string
 var book *library.Book
+var mdOut bool
 
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
@@ -42,6 +43,7 @@ func loadConfig() {
 	viper.SetConfigType("toml")
 
 	viper.SetDefault("data.dir", "data")
+	viper.SetDefault("data.mdDir", "content/books")
 	viper.ReadInConfig()
 }
 
@@ -54,4 +56,5 @@ func init() {
 	rootCmd.PersistentFlags().StringVarP(&title, "title", "t", "", "book title")
 	rootCmd.PersistentFlags().StringVarP(&author, "author", "a", "", "book author")
 	rootCmd.PersistentFlags().StringVarP(&status, "status", "s", "", "book status")
+	rootCmd.PersistentFlags().BoolVarP(&mdOut, "mdOut", "o", false, "output frontmatter")
 }

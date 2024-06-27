@@ -7,19 +7,18 @@ short = 'Add'
 long = "The command `config` sets the configuration for the application\n"
 short = 'Config'
 
+[cmd.info]
+long = "Get information about a book, including the current status, and its history.\n"
+short = 'Info'
+
 [cmd.root]
 long = "Books is a CLI library for Reading Material Management (RMM).\n\nPerform CRUD operations on records pertaining to books in order to define relationships between the reader and a given piece of material.\n"
 short = 'Books'
 
-[data]
-dir = 'data'
-
 [cmd.update]
-short = 'Update'
 long = "The command `update` updates the status of a book in the library.\n\nThe path to the books can be set from the CLI using `config --libraryDir`.\nThe filename is generated from the title and author.\n"
+short = 'Update'
 
-[cmd.info]
-short = 'Info'
-long = '''
-Get information about a book, including the current status, and its history.
-'''
+[data]
+dir = 'example/data'
+mddir = 'example/content/books'

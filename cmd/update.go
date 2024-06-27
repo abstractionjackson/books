@@ -43,6 +43,9 @@ var updateCmd = &cobra.Command{
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Printf("Updating %s to %s\n", title, status)
 		book.UpdateStatus(status)
+		if mdOut {
+			book.SaveBookToMarkdown()
+		}
 	},
 }
 

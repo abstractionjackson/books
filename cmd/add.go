@@ -28,6 +28,9 @@ var addCmd = &cobra.Command{
 	Run: func(cmd *cobra.Command, args []string) {
 		book = library.NewBook(title, author, status)
 		book.SaveBookToTOML()
+		if mdOut {
+			book.SaveBookToMarkdown()
+		}
 	},
 }
 

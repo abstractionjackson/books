@@ -24,6 +24,9 @@ func init() {
 	configCmd.Flags().StringP("data.dir", "d", "", "data directory")
 	viper.BindPFlag("data.dir", configCmd.Flags().Lookup("data.dir"))
 
+	configCmd.Flags().StringP("data.mdDir", "m", "", "markdown directory")
+	viper.BindPFlag("data.mdDir", configCmd.Flags().Lookup("data.mdDir"))
+
 	rootCmd.AddCommand(configCmd)
 
 }
